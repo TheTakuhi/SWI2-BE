@@ -1,2 +1,2 @@
-# SWI2
+# SWI2 - BE
 Chat application
