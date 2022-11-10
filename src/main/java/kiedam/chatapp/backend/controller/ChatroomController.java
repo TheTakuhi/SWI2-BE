@@ -1,5 +1,8 @@
 package kiedam.chatapp.backend.controller;
 
+import kiedam.chatapp.backend.model.Chatroom;
+import kiedam.chatapp.backend.service.ChatroomService;
+import kiedam.chatapp.backend.service.MessageService;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
