@@ -1,6 +1,8 @@
 package kiedam.chatapp.backend.service;
 
 import kiedam.chatapp.backend.builder.RabbitMqBuilder;
+import kiedam.chatapp.backend.dto.MessageProcessedDTO;
+import kiedam.chatapp.backend.dto.MessageRequestDTO;
 import kiedam.chatapp.backend.model.Chatroom;
 import kiedam.chatapp.backend.model.Message;
 import kiedam.chatapp.backend.model.User;

@@ -2,6 +2,9 @@ package kiedam.chatapp.backend.event;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kiedam.chatapp.backend.builder.StompBuilder;
+import kiedam.chatapp.backend.dto.MessageProcessedDTO;
+import kiedam.chatapp.backend.dto.MessageResponseDTO;
+import kiedam.chatapp.backend.mapper.MessageMapper;
 import kiedam.chatapp.backend.model.User;
 import kiedam.chatapp.backend.service.UserService;
 import org.slf4j.Logger;

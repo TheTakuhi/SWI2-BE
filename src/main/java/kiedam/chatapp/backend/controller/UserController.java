@@ -1,8 +1,9 @@
 package kiedam.chatapp.backend.controller;
 
-import kiedam.chatapp.backend.model.Chatroom;
-import kiedam.chatapp.backend.service.ChatroomService;
-import kiedam.chatapp.backend.service.MessageService;
+import kiedam.chatapp.backend.dto.UserDTO;
+import kiedam.chatapp.backend.model.User;
+import kiedam.chatapp.backend.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,45 +12,38 @@ import java.util.stream.Collectors;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/chatrooms")
+@RequestMapping("/users")
 public class UserController {
-    private final ChatroomService chatroomService;
-    private final MessageService messageService;
-    private final MessageMapper messageMapper;
-    private final ChatroomMapper chatroomMapper;
+    private final UserService userService;
+    private final ModelMapper mapper;
+
 
     @Autowired
-    public ChatroomController(ChatroomService chatroomService,
-                              MessageService messageService,
-                              MessageMapper messageMapper,
-                              ChatroomMapper chatroomMapper) {
-        this.chatroomService = chatroomService;
-        this.messageService = messageService;
-        this.messageMapper = messageMapper;
-        this.chatroomMapper = chatroomMapper;
+    public UserController(UserService userService,
+                          ModelMapper modelMapper) {
+        this.userService = userService;
+        this.mapper = modelMapper;
     }
 
-    @GetMapping
-    public List<ChatroomDTO> getAllChatrooms() {
-        return chatroomService
-                .getAllChatrooms()
+    @GetMapping("/all")
+    public List<UserDTO> getAllUsers() {
+        return userService.getAllUsers()
                 .stream()
-                .map(chatroomMapper::mapToChatroomDTO)
+                .map(user -> mapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
     }
 
-    @PostMapping
-    public Long createNewChatroom(@RequestBody NewChatRoomRequestDTO requestDTO) {
-        Chatroom createdChatroom = chatroomService.createNewChatroom(requestDTO.getAttachedUserIds(), requestDTO.getTitle());
-        return createdChatroom.getId();
+    @GetMapping("/detail")
+    public UserDTO getUserDetail() {
+        User user = userService.getLoggedUser();
+        return mapper.map(user, UserDTO.class);
     }
 
-    @GetMapping("/{chatroomId}/messages")
-    public List<MessageResponseDTO> getMessagesInChatroom(@PathVariable Long chatroomId) {
-        return messageService
-                .getAllByChatroomId(chatroomId)
+    @GetMapping("/search")
+    public List<UserDTO> getUsersBySearch(@RequestParam("term") String searchTerm) {
+        return userService.getAllUsers(searchTerm)
                 .stream()
-                .map(messageMapper::mapToMessageResponseDTO)
+                .map(user -> mapper.map(user, UserDTO.class))
                 .collect(Collectors.toList());
     }
 }

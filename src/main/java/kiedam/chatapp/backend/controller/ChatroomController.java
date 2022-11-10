@@ -1,5 +1,10 @@
 package kiedam.chatapp.backend.controller;
 
+import kiedam.chatapp.backend.dto.ChatroomDTO;
+import kiedam.chatapp.backend.dto.MessageResponseDTO;
+import kiedam.chatapp.backend.dto.NewChatRoomDTO;
+import kiedam.chatapp.backend.mapper.ChatroomMapper;
+import kiedam.chatapp.backend.mapper.MessageMapper;
 import kiedam.chatapp.backend.model.Chatroom;
 import kiedam.chatapp.backend.service.ChatroomService;
 import kiedam.chatapp.backend.service.MessageService;
@@ -39,7 +44,7 @@ public class ChatroomController {
     }
 
     @PostMapping
-    public Long createNewChatroom(@RequestBody NewChatRoomRequestDTO requestDTO) {
+    public Long createNewChatroom(@RequestBody NewChatRoomDTO requestDTO) {
         Chatroom createdChatroom = chatroomService.createNewChatroom(requestDTO.getAttachedUserIds(), requestDTO.getTitle());
         return createdChatroom.getId();
     }
