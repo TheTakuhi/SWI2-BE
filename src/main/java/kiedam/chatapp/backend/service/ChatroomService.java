@@ -1,22 +1,21 @@
 package kiedam.chatapp.backend.service;
 
-import kiedam.chatapp.backend.builder.RabbitMqBuilder;
 import kiedam.chatapp.backend.model.Chatroom;
 import kiedam.chatapp.backend.model.User;
 import kiedam.chatapp.backend.repository.ChatRoomRepository;
+import kiedam.chatapp.backend.utils.RabbitMqBuilder;
 import org.springframework.amqp.core.AmqpAdmin;
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.FanoutExchange;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
 public class ChatroomService {
+
     private final ChatRoomRepository chatRoomRepository;
     private final AmqpAdmin amqpAdmin;
     private final UserService userService;

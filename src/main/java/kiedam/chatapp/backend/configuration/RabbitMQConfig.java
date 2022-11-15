@@ -2,7 +2,6 @@ package kiedam.chatapp.backend.configuration;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import kiedam.chatapp.backend.event.RabbitMqListener;
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;
 import org.springframework.amqp.rabbit.core.RabbitAdmin;
@@ -12,9 +11,11 @@ import org.springframework.amqp.support.converter.Jackson2JsonMessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.json.Jackson2ObjectMapperBuilder;
+import kiedam.chatapp.backend.event.RabbitMqListener;
 
 @Configuration
 public class RabbitMQConfig {
+
     public static final String QUEUE = "chat-room";
     public static final String EXCHANGE = "chat-exchange";
     public static final String KEY = "key";

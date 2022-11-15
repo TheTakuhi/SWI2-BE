@@ -1,13 +1,14 @@
 package kiedam.chatapp.backend.controller;
 
-import kiedam.chatapp.backend.service.NotificationService;
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
+import kiedam.chatapp.backend.service.NotificationService;
 
 @Controller
 public class NotificationController {
+
     private final NotificationService notificationService;
 
     public NotificationController(NotificationService notificationService) {

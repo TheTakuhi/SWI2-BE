@@ -1,12 +1,13 @@
 package kiedam.chatapp.backend.service;
 
-import kiedam.chatapp.backend.builder.StompBuilder;
 import kiedam.chatapp.backend.model.*;
+import kiedam.chatapp.backend.utils.StompBuilder;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
 @Service
 public class NotificationService {
+
     private final SimpMessagingTemplate messagingTemplate;
     private final UserService userService;
     private final ChatroomService chatroomService;

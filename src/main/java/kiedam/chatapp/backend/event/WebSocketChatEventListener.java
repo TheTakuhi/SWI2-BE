@@ -1,8 +1,8 @@
 package kiedam.chatapp.backend.event;
 
-import kiedam.chatapp.backend.builder.RabbitMqBuilder;
 import kiedam.chatapp.backend.model.User;
 import kiedam.chatapp.backend.service.UserService;
+import kiedam.chatapp.backend.utils.RabbitMqBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.listener.SimpleMessageListenerContainer;
@@ -10,23 +10,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.EventListener;
 import org.springframework.messaging.simp.SimpAttributesContextHolder;
 import org.springframework.messaging.simp.stomp.StompHeaderAccessor;
-import org.springframework.web.socket.messaging.AbstractSubProtocolEvent;
-import org.springframework.web.socket.messaging.SessionConnectedEvent;
-import org.springframework.web.socket.messaging.SessionDisconnectEvent;
-import org.springframework.web.socket.messaging.SessionSubscribeEvent;
+import org.springframework.stereotype.Service;
+import org.springframework.web.socket.messaging.*;
 
 import java.util.List;
 import java.util.Set;
 
-public class WebSocketEventListener {
-    private static final Logger log = LoggerFactory.getLogger(WebSocketEventListener.class);
+@Service
+public class WebSocketChatEventListener {
+
+    private static final Logger log = LoggerFactory.getLogger(WebSocketChatEventListener.class);
 
     private final SimpleMessageListenerContainer container;
     private final UserService userService;
     private final SubscriptionService subscriptionService;
 
     @Autowired
-    public WebSocketEventListener(SimpleMessageListenerContainer container,
+    public WebSocketChatEventListener(SimpleMessageListenerContainer container,
                                       UserService userService,
                                       SubscriptionService subscriptionService) {
         this.container = container;

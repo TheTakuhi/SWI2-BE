@@ -7,7 +7,8 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class MessageNotification extends Notification{
+public class MessageNotification extends Notification {
+
     private String message;
     private String chatroomTitle;
     private Long chatroomId;

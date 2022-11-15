@@ -1,12 +1,12 @@
 package kiedam.chatapp.backend.event;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import kiedam.chatapp.backend.builder.StompBuilder;
 import kiedam.chatapp.backend.dto.MessageProcessedDTO;
 import kiedam.chatapp.backend.dto.MessageResponseDTO;
 import kiedam.chatapp.backend.mapper.MessageMapper;
 import kiedam.chatapp.backend.model.User;
 import kiedam.chatapp.backend.service.UserService;
+import kiedam.chatapp.backend.utils.StompBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.core.Message;
@@ -19,6 +19,7 @@ import java.io.IOException;
 
 @Service
 public class RabbitMqListener implements MessageListener {
+
     private static final Logger log = LoggerFactory.getLogger(RabbitMqListener.class);
 
     private final SimpMessagingTemplate messagingTemplate;

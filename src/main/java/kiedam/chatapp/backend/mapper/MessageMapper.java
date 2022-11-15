@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MessageMapper {
+
     private final ModelMapper modelMapper;
     private final UserService userService;
 

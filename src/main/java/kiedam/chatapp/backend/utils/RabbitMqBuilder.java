@@ -1,9 +1,10 @@
-package kiedam.chatapp.backend.builder;
+package kiedam.chatapp.backend.utils;
 
 import kiedam.chatapp.backend.model.Chatroom;
 import kiedam.chatapp.backend.model.User;
 
 public class RabbitMqBuilder {
+
     public static class Name {
         public static String buildChatroomExchange(Chatroom chatroom) {
             return String.format("chatroom.%d.exchange", chatroom.getId());

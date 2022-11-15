@@ -13,6 +13,7 @@ import java.util.Set;
 @Entity(name = "Chatroom")
 @Table(name = "chatroom")
 public class Chatroom implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -36,3 +37,6 @@ public class Chatroom implements Serializable {
         this.title = title;
     }
 }
+
+
+

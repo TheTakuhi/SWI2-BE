@@ -3,10 +3,13 @@ package kiedam.chatapp.backend.model;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Data
@@ -22,6 +25,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
                 )
         })
 public class User implements UserDetails {
+
     @Id
     @SequenceGenerator(
             name = "user_sequence",

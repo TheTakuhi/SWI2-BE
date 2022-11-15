@@ -21,7 +21,9 @@ import java.util.List;
 
 @Configuration
 @EnableWebSecurity
+//@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
     private final PasswordEncoder passwordEncoder;
     private final UserService userService;
     private final SecretKey secretKey;

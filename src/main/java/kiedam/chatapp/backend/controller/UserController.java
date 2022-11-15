@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @CrossOrigin
 @RequestMapping("/users")
 public class UserController {
+
     private final UserService userService;
     private final ModelMapper mapper;
 

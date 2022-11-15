@@ -1,12 +1,12 @@
 package kiedam.chatapp.backend.service;
 
-import kiedam.chatapp.backend.builder.RabbitMqBuilder;
 import kiedam.chatapp.backend.dto.MessageProcessedDTO;
 import kiedam.chatapp.backend.dto.MessageRequestDTO;
 import kiedam.chatapp.backend.model.Chatroom;
 import kiedam.chatapp.backend.model.Message;
 import kiedam.chatapp.backend.model.User;
 import kiedam.chatapp.backend.repository.MessageRepository;
+import kiedam.chatapp.backend.utils.RabbitMqBuilder;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +16,7 @@ import java.util.List;
 
 @Service
 public class MessageService {
+
     private final MessageRepository messageRepository;
     private final ChatroomService chatRoomService;
     private final RabbitTemplate rabbitTemplate;

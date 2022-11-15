@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RequestMapping("/messages")
 public class MessageController {
+
     private final MessageService messageService;
     private final MessageMapper messageMapper;
 

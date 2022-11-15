@@ -1,9 +1,11 @@
 package kiedam.chatapp.backend.model;
 
 import lombok.*;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+
 import static javax.persistence.GenerationType.SEQUENCE;
 
 @Getter
@@ -13,6 +15,7 @@ import static javax.persistence.GenerationType.SEQUENCE;
 @Entity(name = "Message")
 @Table(name = "\"message\"")
 public class Message implements Serializable {
+
     @Id
     @SequenceGenerator(
             name = "message_sequence",

@@ -1,8 +1,8 @@
 package kiedam.chatapp.backend.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import kiedam.chatapp.backend.model.Message;
 import lombok.*;
+import kiedam.chatapp.backend.model.Message;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

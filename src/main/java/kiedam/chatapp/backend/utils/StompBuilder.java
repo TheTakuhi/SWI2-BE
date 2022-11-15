@@ -1,4 +1,4 @@
-package kiedam.chatapp.backend.builder;
+package kiedam.chatapp.backend.utils;
 
 import kiedam.chatapp.backend.model.Chatroom;
 import kiedam.chatapp.backend.model.User;
