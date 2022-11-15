@@ -22,6 +22,7 @@ public class BackendApplication{
     CommandLineRunner commandLineRunner(
             UserService userService,
             ChatroomService chatroomService,
+            ChatRoomRepository chatRoomRepository,
             PasswordEncoder passwordEncoder) {
         return args -> {
             List<User> users = List.of(
@@ -35,7 +36,7 @@ public class BackendApplication{
 
             chatroomService.createDemoGroupChatroom(
                     Set.of(1L, 2L, 3L),
-                    "School group"
+                    "Demo group"
             );
         };
     }

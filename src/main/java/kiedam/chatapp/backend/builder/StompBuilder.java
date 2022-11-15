@@ -11,4 +11,8 @@ public class StompBuilder {
     public static String buildChatroomChannel(User user, Chatroom chatroom) {
         return buildChatroomChannel(user.getId(), chatroom.getId());
     }
+
+    public static String buildNotificationChannel(Long userId) {
+        return String.format("/topic/user_%d/notifications", userId);
+    }
 }

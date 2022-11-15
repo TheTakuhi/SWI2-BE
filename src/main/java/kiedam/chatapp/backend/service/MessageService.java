@@ -20,16 +20,19 @@ public class MessageService {
     private final ChatroomService chatRoomService;
     private final RabbitTemplate rabbitTemplate;
     private final UserService userService;
+    private final NotificationService notificationService;
 
     @Autowired
     public MessageService(MessageRepository messageRepository,
                           ChatroomService chatRoomService,
                           RabbitTemplate rabbitTemplate,
-                          UserService userService) {
+                          UserService userService,
+                          NotificationService notificationService) {
         this.messageRepository = messageRepository;
         this.chatRoomService = chatRoomService;
         this.rabbitTemplate = rabbitTemplate;
         this.userService = userService;
+        this.notificationService = notificationService;
     }
 
     public Message createMessage(Message message) {
@@ -53,6 +56,7 @@ public class MessageService {
         Message savedMessage = createMessage(message);
 
         sendMessageToChatroom(chatroom, savedMessage);
+        notificationService.sendNewMessageNotification(chatroom.getId(), message.getMessage());
 
         return savedMessage;
     }
